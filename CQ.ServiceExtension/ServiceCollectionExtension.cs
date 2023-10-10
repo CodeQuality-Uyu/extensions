@@ -55,6 +55,31 @@ namespace CQ.ServiceExtension
             }
         }
 
+        public static void AddService<TService>(this IServiceCollection services, LifeTime lifeTime)
+            where TService : class
+        {
+            switch (lifeTime)
+            {
+                case LifeTime.Scoped:
+                    {
+                        services.AddScoped<TService>();
+                        break;
+                    }
+
+                case LifeTime.Transient:
+                    {
+                        services.AddTransient<TService>();
+
+                        break;
+                    }
+                case LifeTime.Singleton:
+                    {
+                        services.AddSingleton<TService>();
+                        break;
+                    }
+            }
+        }
+
         public static void AddService<TService, TImplementation>(this IServiceCollection services, LifeTime lifeTime)
             where TService : class
             where TImplementation : class, TService
