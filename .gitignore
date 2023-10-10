@@ -5,7 +5,7 @@
 .env.*
 # mstest test results
 TestResults
-
+*.nupkg
 .vscode
 
 ## Ignore Visual Studio temporary files, build results, and
