@@ -4,7 +4,7 @@ namespace CQ.ServiceExtension
 {
     public static class ServiceCollectionExtension
     {
-        public static void AddService<TService, TImplementation>(this IServiceCollection services, Func<IServiceProvider, TImplementation> implementationFactory, LifeTime lifeTime)
+        public static IServiceCollection AddService<TService, TImplementation>(this IServiceCollection services, Func<IServiceProvider, TImplementation> implementationFactory, LifeTime lifeTime)
             where TService : class
             where TImplementation : class, TService
         {
@@ -28,9 +28,11 @@ namespace CQ.ServiceExtension
                         break;
                     }
             }
+
+            return services;
         }
 
-        public static void AddService<TService>(this IServiceCollection services, Func<IServiceProvider, TService> implementationFactory, LifeTime lifeTime)
+        public static IServiceCollection AddService<TService>(this IServiceCollection services, Func<IServiceProvider, TService> implementationFactory, LifeTime lifeTime)
             where TService : class
         {
             switch (lifeTime)
@@ -53,9 +55,11 @@ namespace CQ.ServiceExtension
                         break;
                     }
             }
+
+            return services;
         }
 
-        public static void AddService<TService>(this IServiceCollection services, LifeTime lifeTime)
+        public static IServiceCollection AddService<TService>(this IServiceCollection services, LifeTime lifeTime)
             where TService : class
         {
             switch (lifeTime)
@@ -78,9 +82,11 @@ namespace CQ.ServiceExtension
                         break;
                     }
             }
+
+            return services;
         }
 
-        public static void AddService<TService, TImplementation>(this IServiceCollection services, LifeTime lifeTime)
+        public static IServiceCollection AddService<TService, TImplementation>(this IServiceCollection services, LifeTime lifeTime)
             where TService : class
             where TImplementation : class, TService
         {
@@ -104,6 +110,8 @@ namespace CQ.ServiceExtension
                         break;
                     }
             }
+
+            return services;
         }
     }
 }
