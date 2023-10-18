@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQ.ServiceExtension", "CQ.ServiceExtension\CQ.ServiceExtension.csproj", "{0B2E2451-DABF-4AB8-9FF8-C3865719E56F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQ.ServiceExtension", "CQ.ServiceExtension\CQ.ServiceExtension.csproj", "{0B2E2451-DABF-4AB8-9FF8-C3865719E56F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5F7A943F-7744-4760-BE53-C89E2ADB26AB}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\pull-request.yml = .github\workflows\pull-request.yml
+		.github\workflows\tag.yml = .github\workflows\tag.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
