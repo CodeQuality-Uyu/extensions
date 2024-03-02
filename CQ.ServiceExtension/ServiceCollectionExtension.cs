@@ -4,7 +4,10 @@ namespace CQ.ServiceExtension
 {
     public static class ServiceCollectionExtension
     {
-        public static IServiceCollection AddService<TService, TImplementation>(this IServiceCollection services, Func<IServiceProvider, TImplementation> implementationFactory, LifeTime lifeTime)
+        public static IServiceCollection AddService<TService, TImplementation>(
+            this IServiceCollection services,
+            Func<IServiceProvider, TImplementation> implementationFactory,
+            LifeTime lifeTime)
             where TService : class
             where TImplementation : class, TService
         {
@@ -32,7 +35,10 @@ namespace CQ.ServiceExtension
             return services;
         }
 
-        public static IServiceCollection AddService<TService>(this IServiceCollection services, Func<IServiceProvider, TService> implementationFactory, LifeTime lifeTime)
+        public static IServiceCollection AddService<TService>(
+            this IServiceCollection services,
+            Func<IServiceProvider, TService> implementationFactory,
+            LifeTime lifeTime)
             where TService : class
         {
             switch (lifeTime)
