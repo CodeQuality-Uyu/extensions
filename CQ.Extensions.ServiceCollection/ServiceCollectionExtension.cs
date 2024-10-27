@@ -209,28 +209,4 @@ public static class ServiceCollectionExtension
 
         return services;
     }
-
-    public static IServiceCollection AddFakeAuthentication<TPrincipal>(
-        this IServiceCollection services,
-        IConfiguration configuration,
-        string fakeAuthenticationIsActiveKey = "Authentication:Fake:IsActive",
-        string fakeAuthenticationKey = "Authentication:Fake",
-        LifeTime fakeAuthenticationLifeTime = LifeTime.Scoped)
-        where TPrincipal : IPrincipal
-    {
-        var isFakeAccountActive = Convert.ToBoolean(configuration[fakeAuthenticationIsActiveKey]);
-
-        if (!isFakeAccountActive)
-        {
-            return services;
-        }
-
-        var fakeAuthentication = configuration
-            .GetSection(fakeAuthenticationKey)
-            .Get<TPrincipal>();
-
-        services.AddService<IPrincipal>(fakeAuthentication, fakeAuthenticationLifeTime);
-
-        return services;
-    }
 }
